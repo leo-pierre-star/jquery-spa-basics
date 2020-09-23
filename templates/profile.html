@@ -1,0 +1,26 @@
+<!-- @info ne peut être afficher que si l'utilisateur est connecté
+     @info les champs doivent être prérempli avec les valeurs existantes en BDD (notre fichier data/user.json)
+     @info les valeurs des attributs en html doivent être minuscule séparé par un - Donc ne pas renomer first-name par firstName
+ -->
+
+<form action="profile.php" method="POST" id="profile-form">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" id="name">
+    </div>
+    <div class="form-group">
+        <label for="first-name">First name</label>
+        <input type="text" class="form-control" name="first-name" id="first-name">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email" id="email">
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" class="form-control" name="age" id="age">
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary">
+    </div>
+</form>
