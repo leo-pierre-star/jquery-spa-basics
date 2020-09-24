@@ -2,14 +2,21 @@
 
 let MON_SUPER_SITE = {};
 
+let addLogoutButton = function () {
+    $('.logout').load('templates/partials/_logout.html');
+}
+
 let handleRequest = function () {
     let user = {};
+
+    $('.logout').html('');
 
     $.get('security.php', function(response) {
         response = JSON.parse(response);
 
         if (response.user) {
             MON_SUPER_SITE['security'] = response.user;
+            addLogoutButton();
         }
 
         let baseUrl = window.location.origin;
