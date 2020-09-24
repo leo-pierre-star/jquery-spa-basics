@@ -22,8 +22,16 @@ if (!isset($_POST['email']) || !isset($_POST['password'])) {
     exit;
 }
 
+$data = file_get_contents(__DIR__ . '/data/user.json');
+$data = json_decode($data, true);
+
+$emails = [];
+foreach($data as $datum) {
+    $emails[] = $datum['email'];
+}
+
 /** @info Si l'email ne fait pas partie des emails acceptable, retourne une erreur */
-if (!in_array($_POST['email'], ['khalid.sookia@iknsa.com', 'moussa.camara@iknsa.com', 'c.robin-ext@m2iformation.fr'])) {
+if (!in_array($_POST['email'], $emails)) {
     echo json_encode([
         "error" => 'No email found in our database'
     ]);
