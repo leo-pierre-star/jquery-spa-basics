@@ -6,10 +6,17 @@ let addLogoutButton = function () {
     $('.logout').load('templates/partials/_logout.html');
 }
 
+let addLoginButton = function () {
+    $('.login').html(`
+        <a href="/#login" class="btn btn-success">Login</a>
+    `);
+}
+
 let handleRequest = function () {
     let user = {};
 
     $('.logout').html('');
+    $('.login').html('');
 
     $.get('security.php', function(response) {
         response = JSON.parse(response);
@@ -17,6 +24,10 @@ let handleRequest = function () {
         if (response.user) {
             MON_SUPER_SITE['security'] = response.user;
             addLogoutButton();
+        }
+        
+        if (!response.user) {
+            addLoginButton();
         }
 
         let baseUrl = window.location.origin;
@@ -47,3 +58,5 @@ let handleRequest = function () {
 handleRequest();
 
 $(window).on('hashchange', handleRequest);
+
+$('body').on('SECURITY_LOGOUT', handleRequest);

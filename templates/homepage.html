@@ -12,7 +12,7 @@
 </div>
 
 <script>
-    if (MON_SUPER_SITE.security) {
+    if (MON_SUPER_SITE.security && MON_SUPER_SITE.security.firstName) {
         $('.jumbotron').prepend(
             `<h2>Hi ${MON_SUPER_SITE.security.firstName}</h2>`
         )
