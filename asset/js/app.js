@@ -50,7 +50,6 @@ let handleRequest = function () {
         }
 
         $('.container').load('templates/' + page + '.html', function () {
-            console.info('page ' + page + ' was loaded');
         });
     })
 }

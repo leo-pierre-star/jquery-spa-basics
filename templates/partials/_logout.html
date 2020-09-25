@@ -12,7 +12,7 @@
             if(response.success) {
                 $('nav .logout').html('');
                 MON_SUPER_SITE.security = false;
-                
+
                 $('body').trigger('SECURITY_LOGOUT');
             }
         })
