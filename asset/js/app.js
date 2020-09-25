@@ -1,6 +1,7 @@
 // console.log(window.location);
-
+let PANIER = {};
 let MON_SUPER_SITE = {};
+let total = 0;
 
 let addLogoutButton = function () {
     $('.logout').load('templates/partials/_logout.html');
@@ -8,7 +9,7 @@ let addLogoutButton = function () {
 
 let addLoginButton = function () {
     $('.login').html(`
-        <a href="/#login" class="btn btn-success">Login</a>
+        <a href="/jquery-spa-basics/#login" class="btn btn-success">Login</a>
     `);
 }
 
